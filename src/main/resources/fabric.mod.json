@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "auxlib",
+	"version": "${version}",
+	"name": "AuxureLib",
+	"description": "A semi-lightweight library containing various utilities and commonly used code by Carpentry.",
+	"authors": [
+		"Luxure (Lead dev)",
+		"Lumii (Assistance)"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/auxlib/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "org.carpentry.auxurelib.core.AuxureLib"
+		],
+		"fabric-datagen": [
+          "org.carpentry.auxurelib.core.AuxureLibDataGenerator"
+		]
+	},
+	"mixins": [
+		"auxlib.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.19.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
