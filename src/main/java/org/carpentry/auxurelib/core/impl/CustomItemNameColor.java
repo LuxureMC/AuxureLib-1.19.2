@@ -8,7 +8,7 @@ public interface CustomItemNameColor {
     int getHexColor(ItemStack stack);
 
     default Text getColoredName(ItemStack stack) {
-        // Use the translation key, not stack.getName()
+        // Use the translation key
         MutableText name = Text.translatable(stack.getItem().getTranslationKey(stack));
 
         int hexColor = getHexColor(stack);
