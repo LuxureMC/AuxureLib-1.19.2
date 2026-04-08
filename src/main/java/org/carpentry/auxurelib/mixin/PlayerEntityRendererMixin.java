@@ -12,26 +12,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntityRenderer.class)
-public class PlayerEntityRendererMixin {
+public abstract class PlayerEntityRendererMixin {
 
-    @Inject(
-            method = "getArmPose",
-            at = @At("HEAD"),
-            cancellable = true
-    )
-    private static void carp$twoHand(
-            AbstractClientPlayerEntity player,
-            Hand hand,
-            CallbackInfoReturnable<BipedEntityModel.ArmPose> cir
-    ) {
-
+    @Inject(method = "getArmPose", at = @At(value = "HEAD"), cancellable = true)
+    private static void carp$twoHand(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> cir) {
         ItemStack main = player.getMainHandStack();
 
         if (main.getItem() instanceof TwoHandedItem) {
+            //boolean using = player.isUsingItem() && player.getActiveHand() == Hand.MAIN_HAND;
+            // active hand check is not needed and just makes it annoying
 
-            boolean using = player.isUsingItem() && player.getActiveHand() == Hand.MAIN_HAND;
-
-            if (!using) {
+            if (!player.isUsingItem()) {
                 cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_CHARGE);
             }
         }

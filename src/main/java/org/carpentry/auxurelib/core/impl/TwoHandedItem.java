@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 public interface TwoHandedItem {
     /**
      * Determines if this weapon is two-handed.
+     * @param stack The weapon ItemStack.
      */
     default boolean isTwoHanded(ItemStack stack) {
         return true;
@@ -13,12 +14,10 @@ public interface TwoHandedItem {
 
     /**
      * Prevents off-hand usage when holding a two-handed item.
+     * @param player The player holding the Item.
      */
     static boolean canUseOffhand(PlayerEntity player) {
         ItemStack main = player.getMainHandStack();
-        if (main.getItem() instanceof TwoHandedItem twoHanded && twoHanded.isTwoHanded(main)) {
-            return false;
-        }
-        return true;
+        return main.getItem() instanceof TwoHandedItem tw && tw.isTwoHanded(main);
     }
 }
