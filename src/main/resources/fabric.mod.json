@@ -3,7 +3,7 @@
 	"id": "auxlib",
 	"version": "${version}",
 	"name": "AuxureLib",
-	"description": "A semi-lightweight library containing various utilities and commonly used code by Carpentry.",
+	"description": "A lightweight library containing item and utilities and commonly used code by Carpentry.",
 	"authors": [
 		"Luxure (Lead dev)",
 		"Lumii (Assistance)",
@@ -13,7 +13,7 @@
 		"sources": "https://github.com/LuxureMC/AuxureLib-1.19.2"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/auxlib/icon.png",
+	"icon": "assets/auxlib/icon_n.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
