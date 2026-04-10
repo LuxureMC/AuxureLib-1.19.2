@@ -6,7 +6,8 @@
 	"description": "A semi-lightweight library containing various utilities and commonly used code by Carpentry.",
 	"authors": [
 		"Luxure (Lead dev)",
-		"Lumii (Assistance)"
+		"Lumii (Assistance)",
+		"Chemthunder (Assistance & fixups)"
 	],
 	"contact": {
 		"sources": "https://github.com/LuxureMC/AuxureLib-1.19.2"
