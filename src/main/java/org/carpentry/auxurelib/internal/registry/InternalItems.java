@@ -22,5 +22,5 @@ public class InternalItems {
     public static void init() {
         //ITEMS.forEach((item, id) -> Registry.register(Registries.ITEM, id, item));
     }
-    // excuse me, what :sob:
+    // excuse me, what? :sob:
 }

@@ -13,7 +13,7 @@
 		"sources": "https://github.com/LuxureMC/AuxureLib-1.19.2"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/auxlib/icon_n.png",
+	"icon": "assets/auxlib/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [

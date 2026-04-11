@@ -9,18 +9,21 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
 import org.carpentry.auxurelib.core.impl.TwoHandedItem;
 import org.carpentry.auxurelib.core.util.TimeUtils;
 import org.carpentry.lumenium_lite.util.render.CubeRenderer;
 
 public class TestItem extends Item implements TwoHandedItem {
 
+    // time utility
     public int DUR = TimeUtils.seconds(10);
 
     public TestItem(Settings settings) {
         super(settings.maxCount(1));
     }
 
+    // this just renders a cube on the client side
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
         ItemStack stack = user.getStackInHand(hand);
@@ -43,6 +46,7 @@ public class TestItem extends Item implements TwoHandedItem {
         return TypedActionResult.success(stack);
     }
 
+    // name color ig
     public Text getName(ItemStack stack) {
         return super.getName(stack).copy().styled(style -> style.withColor(0xff004f));
     }

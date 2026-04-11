@@ -22,7 +22,7 @@ public abstract class PlayerEntityRendererMixin {
             //boolean using = player.isUsingItem() && player.getActiveHand() == Hand.MAIN_HAND;
             // active hand check is not needed and just makes it annoying
 
-            //got it
+            // thanks, got it
 
             if (!player.isUsingItem()) {
                 cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_CHARGE);
