@@ -9,14 +9,13 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.carpentry.auxurelib.core.impl.CustomStackColor;
 import org.carpentry.auxurelib.core.impl.TwoHandedItem;
 import org.carpentry.auxurelib.core.util.TimeUtils;
 import org.carpentry.lumenium_lite.util.render.CubeRenderer;
 
-public class TestItem extends Item implements TwoHandedItem, CustomStackColor {
+public class TestItem extends Item implements TwoHandedItem {
 
-    public int DUR = TimeUtils.ticksToMinutes(2);
+    public int DUR = TimeUtils.seconds(10);
 
     public TestItem(Settings settings) {
         super(settings.maxCount(1));
@@ -44,13 +43,7 @@ public class TestItem extends Item implements TwoHandedItem, CustomStackColor {
         return TypedActionResult.success(stack);
     }
 
-    @Override
-    public int getHexColor(ItemStack stack) {
-        return 0xff004f;
-    }
-
-    @Override
     public Text getName(ItemStack stack) {
-        return getColoredName(stack);
+        return super.getName(stack).copy().styled(style -> style.withColor(0xff004f));
     }
 }

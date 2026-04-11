@@ -1,16 +1,15 @@
 package org.carpentry.auxurelib.core.util;
 
+@SuppressWarnings("unused")
 public class TimeUtils {
 
-    public static int ticksToSeconds(int ticks){
-        return ticks / 20;
-    }
-
-    public static int secondsToTicks(int ticks){
+    // converts a number of ticks to seconds.
+    public static int seconds(int ticks){
         return ticks * 20;
     }
 
-    public static int ticksToMinutes(int ticks){
+    // converts a number of ticks to minutes.
+    public static int minutes(int ticks){
         return ticks * 1200;
     }
 }
