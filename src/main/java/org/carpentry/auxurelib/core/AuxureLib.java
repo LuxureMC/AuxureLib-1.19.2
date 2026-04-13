@@ -22,4 +22,5 @@ public class AuxureLib implements ModInitializer {
 
 	public static Identifier id (String path){return Identifier.of(MOD_ID, path); } // use AuxureLib.id() instead of new Identifier("auxurelib")
 	// thanks ig? Not really sure what the point is but ok
+	// it's a code cleanup thing and less characters to type, along with being more reliable if the modid changes
 }

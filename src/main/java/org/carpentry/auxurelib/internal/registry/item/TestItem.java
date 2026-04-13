@@ -15,16 +15,14 @@ import org.carpentry.auxurelib.core.util.TimeUtils;
 import org.carpentry.lumenium_lite.util.render.CubeRenderer;
 
 public class TestItem extends Item implements TwoHandedItem {
-
     // time utility
-    public int DUR = TimeUtils.seconds(10);
+    private int DUR = TimeUtils.seconds(10);
 
     public TestItem(Settings settings) {
         super(settings.maxCount(1));
     }
 
     // this just renders a cube on the client side
-    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
         ItemStack stack = user.getStackInHand(hand);
         if (world.isClient){
@@ -33,7 +31,7 @@ public class TestItem extends Item implements TwoHandedItem {
                     4, 4, 4,
                     Vec3d.ZERO,
                     1,
-                    new Identifier("minecraft", "textures/misc/white.png"),
+                    new Identifier("minecraft", "textures/misc/white.png"), // does Identifier.ofVanilla exist i lowk forgor
                     DUR,
                     false,
                     0,

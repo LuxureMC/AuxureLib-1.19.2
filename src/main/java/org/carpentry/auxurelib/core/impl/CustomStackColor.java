@@ -11,7 +11,7 @@ public interface CustomStackColor {
     int getHexColor(ItemStack stack);
 
     default Text getColoredName(ItemStack stack) {
-        // Use the translation key <-- do we even need this comment?
+        // Use the translation key <-- do we even need this comment? // no lol
         MutableText name = Text.translatable(stack.getItem().getTranslationKey(stack));
 
         int hexColor = getHexColor(stack);
@@ -20,7 +20,7 @@ public interface CustomStackColor {
         int b = hexColor & 0xFF;
 
         return name.setStyle(name.getStyle().withColor((r << 16) | (g << 8) | b));
-    } // why ts bitshifted guh <-- tf is a bitshift? (i forgor)
+    } // why ts bitshifted guh <-- tf is a bitshift? (i forgor) {} Bitshift is the '<<' thing
 }
 
 /*
@@ -34,3 +34,4 @@ return the base text, then add `.styled(style -> style.withColor(COLOR));`
 */
 
 // thanks for clarifying that ig
+// yw twin
