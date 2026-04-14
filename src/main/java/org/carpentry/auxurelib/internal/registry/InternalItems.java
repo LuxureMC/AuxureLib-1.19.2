@@ -1,10 +1,9 @@
 package org.carpentry.auxurelib.internal.registry;
 
 import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import org.carpentry.auxurelib.internal.registry.item.TestItem;
 import org.carpentry.auxurelib.core.AuxureLib;
+import org.carpentry.auxurelib.internal.registry.item.TestItem;
 
 public class InternalItems {
     //public static Map<Item, Identifier> ITEMS = new LinkedHashMap<>();

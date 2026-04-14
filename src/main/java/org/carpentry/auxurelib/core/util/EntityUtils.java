@@ -9,11 +9,9 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -23,7 +21,7 @@ public class EntityUtils {
      *  @param living The entity to calculate for.
      *  @param expansion The diameter of the checked area.
      */
-    public static List<Entity> getEntitiesAroundEntity(LivingEntity living, int expansion) {
+    public static List<Entity> getEntitiesAroundEntity(Entity living, int expansion) {
         return living.getWorld().getEntitiesByClass(Entity.class, new Box(living.getBlockPos()).expand(expansion), entity -> true);
     }
 
