@@ -31,7 +31,7 @@ public class TestItem extends Item implements TwoHandedItem {
                     4, 4, 4,
                     Vec3d.ZERO,
                     1,
-                    new Identifier("minecraft", "textures/misc/white.png"), // does Identifier.ofVanilla exist i lowk forgor
+                    new Identifier("minecraft", "textures/misc/white.png"), // does Identifier.ofVanilla exist i lowk forgor // nope
                     DUR,
                     false,
                     0,
