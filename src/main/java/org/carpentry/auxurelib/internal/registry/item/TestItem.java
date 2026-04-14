@@ -10,7 +10,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import org.carpentry.auxurelib.core.impl.TwoHandedItem;
+import org.carpentry.auxurelib.core.interfaces.TwoHandedItem;
 import org.carpentry.auxurelib.core.util.TimeUtils;
 import org.carpentry.lumenium_lite.util.render.CubeRenderer;
 

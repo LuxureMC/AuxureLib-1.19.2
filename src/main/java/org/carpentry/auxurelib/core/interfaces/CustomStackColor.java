@@ -1,4 +1,4 @@
-package org.carpentry.auxurelib.core.impl;
+package org.carpentry.auxurelib.core.interfaces;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;

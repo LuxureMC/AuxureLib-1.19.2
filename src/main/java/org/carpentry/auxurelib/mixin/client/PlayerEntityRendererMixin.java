@@ -1,11 +1,12 @@
-package org.carpentry.auxurelib.mixin;
+package org.carpentry.auxurelib.mixin.client;
 
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import org.carpentry.auxurelib.core.impl.TwoHandedItem;
+import org.carpentry.auxurelib.core.interfaces.CustomHeldPoseItem;
+import org.carpentry.auxurelib.core.interfaces.TwoHandedItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,6 +28,10 @@ public abstract class PlayerEntityRendererMixin {
             if (!player.isUsingItem()) {
                 cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_CHARGE);
             }
+        }
+
+        if (main.getItem() instanceof CustomHeldPoseItem customHeldPoseItem) {
+            cir.setReturnValue(customHeldPoseItem.getArmPose(player, player.getStackInHand(player.getActiveHand())));
         }
     }
 }

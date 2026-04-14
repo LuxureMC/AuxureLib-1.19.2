@@ -20,7 +20,7 @@
           "org.carpentry.auxurelib.core.AuxureLib"
 		],
 		"fabric-datagen": [
-          "org.carpentry.auxurelib.core.AuxureLibDataGenerator"
+          "org.carpentry.auxurelib.core.AuxureLibDataGen"
 		]
 	},
 	"mixins": [

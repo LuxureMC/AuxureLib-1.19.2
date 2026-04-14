@@ -10,7 +10,7 @@ repositories {}
 
 fabricApi {
 	configureDataGeneration {
-		// modId = "auxlib" // datagen fix in case it's needed
+		 modId = "auxlib"
 		client = true
 	}
 }

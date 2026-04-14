@@ -3,6 +3,7 @@ package org.carpentry.auxurelib.core;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
+import org.carpentry.auxurelib.core.util.MiscUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,14 +14,12 @@ public class AuxureLib implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public void onInitialize() {
-		if (FabricLoader.getInstance().isDevelopmentEnvironment()){
+		if (MiscUtils.isDev()){
 			InternalItems.init();
-		} // only register internal items if its a dev environment
+		}
 
 		LOGGER.info("AuxureLib initializing.");
 	}
 
-	public static Identifier id (String path){return Identifier.of(MOD_ID, path); } // use AuxureLib.id() instead of new Identifier("auxurelib")
-	// thanks ig? Not really sure what the point is but ok
-	// it's a code cleanup thing and less characters to type, along with being more reliable if the modid changes
+	public static Identifier id (String path){return Identifier.of(MOD_ID, path); }
 }
