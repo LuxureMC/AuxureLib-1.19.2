@@ -28,20 +28,5 @@ public abstract class LivingEntityMixin {
         }
     }
 
-    @WrapOperation(
-            method = "damage",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"
-            )
-    )
-    private void auxlib$customKillSourceItem(LivingEntity instance, DamageSource source, float amount, Operation<Void> original) {
-        Entity misc = source.getAttacker();
-
-        if (misc instanceof PlayerEntity player) {
-            if (player.getMainHandStack().getItem() instanceof CustomKillSourceItem customKillSourceItem) {
-                original.call(instance, customKillSourceItem.getKillSource(player, player.getMainHandStack()), amount);
-            }
-        }
-    }
+    // removed @WrapOperation for CustomKillSourceItem because it fucked up damage completely
 }
