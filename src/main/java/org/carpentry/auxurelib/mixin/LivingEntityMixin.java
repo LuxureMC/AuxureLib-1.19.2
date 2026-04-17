@@ -29,4 +29,15 @@ public abstract class LivingEntityMixin {
     }
 
     // removed @WrapOperation for CustomKillSourceItem because it fucked up damage completely
+    // I GOT ONE MIXIN WRONG CALM THE FUCK DOWN
+
+    // @WrapOperation(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"))
+    // private void ozone$customKillSource(LivingEntity instance, DamageSource source, float amount, Operation<Void> original) { 
+    //     if (source.getAttacker() instanceof LivingEntity living && living.getMainHandStack().getItem() instanceof CustomDeathSourceItem deathSource) {
+    //         original.call(instance, deathSource.getKillSource(instance), amount);
+    //     } else {
+    //         original.call(instance, source, amount);
+    //     }
+    //  }
+    // port this
 }
