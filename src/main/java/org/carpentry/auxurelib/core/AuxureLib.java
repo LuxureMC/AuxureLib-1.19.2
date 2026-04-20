@@ -12,7 +12,7 @@ public class AuxureLib implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public void onInitialize() {
-		if (MiscUtils.isDev()){
+		if (MiscUtils.isDev()) {
 			InternalItems.init();
 		}
 

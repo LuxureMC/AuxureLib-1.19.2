@@ -59,6 +59,9 @@ public class TestItem extends WeaponItem implements TwoHandedItem, CustomKillSou
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(TooltipHelper.createLiteral("Testing Tooltip", Formatting.GOLD));
+        // bro why did we make an entire helper to do the same thing as:
+        // tooltip.add(Text.literal("Testing Tooltip").formatted(Formatting.GOLD));
+        // :sob:, along with not being able to do a ton of stuff text does
     }
 
     @Override

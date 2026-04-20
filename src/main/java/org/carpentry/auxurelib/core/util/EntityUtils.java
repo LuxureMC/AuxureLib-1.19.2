@@ -17,13 +17,25 @@ import java.util.List;
 
 public class EntityUtils {
     /**
-     *  Returns a list of entities around the specified entity.
-     *  @param living The entity to calculate for.
-     *  @param expansion The diameter of the checked area.
+     * Returns a list of entities around the specified entity.
+     * @param living The entity to calculate for.
+     * @param expansion The diameter of the checked area.
      */
     public static List<Entity> getEntitiesAroundEntity(Entity living, int expansion) {
         return living.getWorld().getEntitiesByClass(Entity.class, new Box(living.getBlockPos()).expand(expansion), entity -> true);
     }
+
+    /**
+     * Returns a list of entities around the specified BlockPos.
+     * @param pos The position to check at.
+     * @param world The world to use.
+     * @param expansion The diameter of the checked area.
+     */
+    // public static List<Entity> getEntitiesAroundPos(BlockPos pos, World world, int expansion) {
+    //     return world.getEntitiesByClass(Entity.class, new Box(pos).expand(expansion), entity -> true);
+    // }
+
+    // import blockpos and world
 
     /**
      * Applies a riptide effect on a specified player in the same style Minecraft does it.
@@ -32,20 +44,22 @@ public class EntityUtils {
      * @param riptideTicks The amount of ticks the riptide is active.
      */
     public static void applyRiptide(PlayerEntity player, float strength, int riptideTicks) {
-        float f = player.getYaw();
-        float g = player.getPitch();
-        float h = -MathHelper.sin(f * ((float)Math.PI / 180F)) * MathHelper.cos(g * ((float)Math.PI / 180F));
-        float k = -MathHelper.sin(g * ((float)Math.PI / 180F));
-        float l = MathHelper.cos(f * ((float)Math.PI / 180F)) * MathHelper.cos(g * ((float)Math.PI / 180F));
+        float yaw = player.getYaw();
+        float pitch = player.getPitch();
+
+        float h = -MathHelper.sin(yaw * ((float) Math.PI / 180f)) * MathHelper.cos(pitch * ((float) Math.PI / 180f));
+        float k = -MathHelper.sin(pitch * ((float) Math.PI / 180f));
+        float l = MathHelper.cos(yaw * ((float) Math.PI / 180f)) * MathHelper.cos(pitch * ((float) Math.PI / 180f));
         float m = MathHelper.sqrt(h * h + k * k + l * l);
-        float n = 3.0F * ((1.0F + strength) / 4.0F);
+
+        float n = 3.0f * ((1.0f + strength) / 4.0f);
         h *= n / m;
         k *= n / m;
         l *= n / m;
         player.addVelocity(h, k, l);
         player.useRiptide(riptideTicks);
         if (player.isOnGround()) {
-            player.move(MovementType.SELF, new Vec3d(0.0F, 1.1999999F, 0.0F));
+            player.move(MovementType.SELF, new Vec3d(0.0f, 1.1999999f, 0.0f));
         }
     }
 

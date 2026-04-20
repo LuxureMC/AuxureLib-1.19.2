@@ -41,8 +41,7 @@ public abstract class LivingEntityMixin {
         if (attacker instanceof PlayerEntity player) {
             ItemStack stack = player.getMainHandStack();
             if (stack.getItem() instanceof CustomKillSourceItem customKillSourceItem) {
-                DamageSource replaced = customKillSourceItem.getKillSource(player, stack);
-                return original.call(instance, replaced);
+                return original.call(instance, customKillSourceItem.getKillSource(player, stack));
             }
         }
         return original.call(instance, source);
