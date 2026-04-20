@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import org.carpentry.auxurelib.core.interfaces.CustomKillEffectItem;
 import org.carpentry.auxurelib.core.interfaces.CustomKillSourceItem;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,17 +29,22 @@ public abstract class LivingEntityMixin {
         }
     }
 
-    // removed @WrapOperation for CustomKillSourceItem because it fucked up damage completely
-    // I GOT ONE MIXIN WRONG CALM THE FUCK DOWN
-
-    // @WrapOperation(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"))
-    // private void ozone$customKillSource(LivingEntity instance, DamageSource source, float amount, Operation<Void> original) { 
-    //     if (source.getAttacker() instanceof LivingEntity living && living.getMainHandStack().getItem() instanceof CustomDeathSourceItem deathSource) {
-    //         original.call(instance, deathSource.getKillSource(instance), amount);
-    //     } else {
-    //         original.call(instance, source, amount);
-    //     }
-    //  }
-    // port this
-    // I would but i cant rn, going to visit family until sunday
+    @WrapOperation(
+            method = "damage",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/entity/LivingEntity;tryUseTotem(Lnet/minecraft/entity/damage/DamageSource;)Z"
+            )
+    )
+    private boolean auxlib$customKillSource(LivingEntity instance, DamageSource source, Operation<Boolean> original) {
+        Entity attacker = source.getAttacker();
+        if (attacker instanceof PlayerEntity player) {
+            ItemStack stack = player.getMainHandStack();
+            if (stack.getItem() instanceof CustomKillSourceItem customKillSourceItem) {
+                DamageSource replaced = customKillSourceItem.getKillSource(player, stack);
+                return original.call(instance, replaced);
+            }
+        }
+        return original.call(instance, source);
+    }
 }

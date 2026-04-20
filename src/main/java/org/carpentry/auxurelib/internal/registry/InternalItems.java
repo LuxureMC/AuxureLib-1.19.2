@@ -8,7 +8,7 @@ import org.carpentry.auxurelib.internal.registry.item.TestItem;
 public class InternalItems {
     //public static Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
-    public static final Item TEST_1 = Registry.register(Registry.ITEM, AuxureLib.id("test_1"), new TestItem(new Item.Settings()));
+    public static final Item TEST_1 = Registry.register(Registry.ITEM, AuxureLib.id("test_1"), new TestItem(new Item.Settings(), 5, -2.4f, true));
 
     // public static final Item TEST_1 = create("test_1", new TestItem(new Item.Settings()));
 

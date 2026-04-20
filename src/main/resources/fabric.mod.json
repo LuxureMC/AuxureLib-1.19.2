@@ -3,7 +3,7 @@
 	"id": "auxlib",
 	"version": "${version}",
 	"name": "AuxureLib",
-	"description": "A lightweight library containing item and utilities and commonly used code by Carpentry.",
+	"description": "A lightweight library containing item utilities and commonly used code by Carpentry.",
 	"authors": [
 		"Luxure (Lead dev)",
 		"Lumii (Assistance)",
